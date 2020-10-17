@@ -20,7 +20,7 @@ class Address {
         try {
             return (Address) super.clone();
         } catch (CloneNotSupportedException e) {
-            return new Address(this.street, this.getCity(), this.getCountry());
+            return new Address(this.getStreet(), this.getCity(), this.getCountry());
         }
     }
 
