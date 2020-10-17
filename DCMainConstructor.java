@@ -1,20 +1,18 @@
-/*
-Contoh Penggunaan Copy Constructor
-*/
-
 public class DCMainConstructor {
 
     public static void main(String args[]) {
         DCMainConstructor main = new DCMainConstructor();
-        main.whenModifyingOriginalObject_thenCopyShouldNotChange();
+        main.testCase();
     }
 
-    public void whenModifyingOriginalObject_thenCopyShouldNotChange() {
-        Address address = new Address("Jalan Cisarua", "Cibadak", "Indonesia");
+    public void testCase() {
+        Address address = new Address("Jalan Cibodas", "Sukabumi", "Indonesia");
         User nugraha = new User("Nugraha", "Mr. ", address);
         User zaid = new User(nugraha);
 
-        address.setCountry("Singapore");
+        zaid.getAddress().setCity("Tasyikmalaya");
+        zaid.setFirstName("Zaid");
+        zaid.setLastName("Abdullah");
 
         System.out.println(nugraha);
         System.out.println(zaid);

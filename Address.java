@@ -1,11 +1,13 @@
-public class Address {
+class Address {
+
     private String street;
     private String city;
     private String country;
 
-    /* Constructor Injection to clone */
-    public Address(Address that) {
-        this(that.getStreet(), that.getCity(), that.getCountry());
+    // standard constructors, getters and setters
+
+    public Address(Address alamat) {
+        this(alamat.getStreet(), alamat.getCity(), alamat.getCountry());
     }
 
     public Address(String street, String city, String country) {
@@ -14,13 +16,11 @@ public class Address {
         this.country = country;
     }
 
-    /* using interface cloning */
-    @Override
     public Object clone() {
         try {
             return (Address) super.clone();
         } catch (CloneNotSupportedException e) {
-            return new Address(this.getStreet(), this.getCity(), this.getCountry());
+            return new Address(this.street, this.getCity(), this.getCountry());
         }
     }
 

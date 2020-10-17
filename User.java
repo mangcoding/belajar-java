@@ -1,11 +1,13 @@
-public class User {
+class User {
+
     private String firstName;
     private String lastName;
     private Address address;
 
-    /* using Constructor Injection to clone */
-    public User(User that) {
-        this(that.getFirstName(), that.getLastName(), new Address(that.getAddress()));
+    // standard constructors, getters and setters
+
+    public User(User user) {
+        this(user.getFirstName(), user.getLastName(), new Address(user.getAddress()));
     }
 
     public User(String firstName, String lastName, Address address) {
@@ -14,8 +16,6 @@ public class User {
         this.address = address;
     }
 
-    /* using interface cloning */
-    @Override
     public Object clone() {
         User user = null;
         try {
